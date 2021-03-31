@@ -25,8 +25,12 @@ public class CameraManager : MonoBehaviour
             cashier.OnStartPrepareOrder();
         });
     }
-    public void LookAtCustomer()
+    public void LookAtCustomer(Customer customer, bool isSuccess)
     {
-        mainCamera.transform.DORotate(waittingOrderPoint.eulerAngles, 1);
+        mainCamera.transform.DORotate(waittingOrderPoint.eulerAngles, 1)
+        .OnComplete(() =>
+        {
+            customer.OnOrderEnd(isSuccess);
+        });
     }
 }

@@ -53,14 +53,7 @@ public class Cashier : MonoBehaviour
         UIManager.Instance.OnEndPrepareOrder();
         OnEndPrepareOrder();
         currentCustomer.OnEndPrepareOrder();
-        if(CheckOrder())
-        {
-            CameraManager.Instance.LookAtCustomer();
-        }
-        else
-        {
-            CameraManager.Instance.LookAtCustomer();
-        }
+        CameraManager.Instance.LookAtCustomer(currentCustomer, CheckOrder());
     }
     public bool CheckOrder()
     {

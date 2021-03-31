@@ -9,6 +9,9 @@ public class CustomerManager : MonoBehaviour
     public Transform customerOrderPoint;
     public Transform customerFinishPoint;
     public GameObject customerPrefab;
+
+    public Color successColor;
+    public Color failColor;
     private void Awake()
     {
         Instance = this;
@@ -17,7 +20,7 @@ public class CustomerManager : MonoBehaviour
     {
         SpawnCustomer();
     }
-    private void SpawnCustomer()
+    public void SpawnCustomer()
     {
         Instantiate(customerPrefab, customerSpawnPoint.position, Quaternion.identity);
     }

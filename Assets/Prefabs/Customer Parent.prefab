@@ -368,9 +368,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bc30c0c5585a1c418375bb1dcd43255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  order: {fileID: 0}
   burgerCountText: {fileID: 372574447962984854}
   pizzaCountText: {fileID: 6224269738462315824}
   sphagettiCountText: {fileID: 8679705423659590264}
+  meshRenderer: {fileID: 1909276399593411568}
   orderCanvas: {fileID: 4113759867183104975}
 --- !u!1 &4977725891170685904
 GameObject:

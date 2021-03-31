@@ -11,6 +11,8 @@ public class Customer : MonoBehaviour
     public Text pizzaCountText;
     public Text sphagettiCountText;
 
+    public MeshRenderer meshRenderer;
+
     public GameObject orderCanvas;
     void Start()
     {
@@ -37,5 +39,15 @@ public class Customer : MonoBehaviour
         burgerCountText.text = order.burgerCount.ToString();
         pizzaCountText.text = order.pizzaCount.ToString();
         sphagettiCountText.text = order.sphagettiCount.ToString();
+    }
+    public void OnOrderEnd(bool isSuccess)
+    {
+        meshRenderer.material.color = (isSuccess ? CustomerManager.Instance.successColor : CustomerManager.Instance.failColor);
+        transform.DOMove(CustomerManager.Instance.customerFinishPoint.position, 3)
+        .OnComplete(() =>
+        {
+            CustomerManager.Instance.SpawnCustomer();
+            Destroy(gameObject);
+        });
     }
 }
